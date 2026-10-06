@@ -1,0 +1,241 @@
+@use '@fontsource-variable/bricolage-grotesque/wdth.css';
+@use '@fontsource-variable/figtree/wght.css';
+
+:root {
+  /* Hielo y cielo */
+  --ice-0: #ffffff;
+  --ice-50: #f2f8fd;
+  --ice-100: #e2f0fa;
+  --ice-200: #c4e1f4;
+  --ice-300: #96c9ec;
+
+  /* Azul Himalaya (logo) */
+  --blue-400: #3a9ad8;
+  --blue-500: #1f84c8;
+  --blue-600: #1471b4;
+  --blue-700: #0e5b94;
+  --blue-800: #0b4674;
+  --blue-900: #082f52;
+
+  --ink: #0a2540;
+  --ink-soft: #3b5876;
+  --on-blue: #ffffff;
+  --on-blue-soft: #d3e9f8;
+
+  --font-display: 'Bricolage Grotesque Variable', 'Figtree Variable', system-ui, sans-serif;
+  --font-body: 'Figtree Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --step--1: clamp(0.875rem, 0.84rem + 0.15vw, 0.95rem);
+  --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+  --step-1: clamp(1.2rem, 1.1rem + 0.45vw, 1.45rem);
+  --step-2: clamp(1.5rem, 1.3rem + 0.9vw, 2.1rem);
+  --step-3: clamp(2rem, 1.6rem + 1.8vw, 3.2rem);
+  --step-4: clamp(2.6rem, 1.9rem + 3.2vw, 4.9rem);
+  --step-5: clamp(4.5rem, 2.5rem + 9vw, 11rem);
+
+  --space-xs: 0.5rem;
+  --space-s: 1rem;
+  --space-m: 1.5rem;
+  --space-l: clamp(2rem, 1.5rem + 2vw, 3rem);
+  --space-xl: clamp(3rem, 2rem + 4vw, 5.5rem);
+  --space-2xl: clamp(4.5rem, 3rem + 6vw, 8.5rem);
+
+  --gutter: clamp(1rem, 0.5rem + 2.5vw, 2.5rem);
+  --max: 76rem;
+  --radius: 14px;
+  --header-h: 4.5rem;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --shadow-lift: 0 18px 40px -18px rgb(8 47 82 / 0.45), 0 4px 10px -4px rgb(8 47 82 / 0.18);
+
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 1rem);
+  -webkit-text-size-adjust: 100%;
+  scrollbar-color: var(--blue-500) var(--ice-100);
+}
+
+body {
+  margin: 0;
+  background: var(--ice-50);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--blue-600);
+  color: var(--on-blue);
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: var(--ice-100);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--blue-500);
+  border: 3px solid var(--ice-100);
+  border-radius: 999px;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-stretch: 82%;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0;
+  text-wrap: pretty;
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1.5px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--blue-400);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.wrap {
+  width: min(100% - 2 * var(--gutter), var(--max));
+  margin-inline: auto;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  padding: 0.75rem 1.1rem;
+  background: var(--blue-900);
+  color: var(--on-blue);
+  border-radius: 10px;
+  font-weight: 700;
+  transform: translateY(-160%);
+  transition: transform 0.25s var(--ease-out);
+  &:focus {
+    transform: none;
+  }
+}
+
+/* Botones */
+.btn {
+  --btn-bg: var(--blue-600);
+  --btn-fg: var(--on-blue);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 3.25rem;
+  padding: 0.8rem 1.5rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font: 700 var(--step-0) / 1 var(--font-body);
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 10px 24px -12px rgb(8 47 82 / 0.7);
+  transition:
+    transform 0.35s var(--ease-out),
+    box-shadow 0.35s var(--ease-out),
+    background-color 0.2s ease;
+
+  app-icon {
+    width: 1.3em;
+    height: 1.3em;
+    flex: none;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    background: var(--blue-700);
+    box-shadow: 0 16px 30px -14px rgb(8 47 82 / 0.8);
+  }
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 14px -10px rgb(8 47 82 / 0.7);
+  }
+}
+
+.btn--light {
+  --btn-bg: var(--ice-0);
+  --btn-fg: var(--blue-800);
+  &:hover {
+    background: var(--ice-100);
+  }
+}
+
+.btn--ghost {
+  --btn-bg: transparent;
+  --btn-fg: var(--blue-700);
+  box-shadow: inset 0 0 0 2px var(--ice-300);
+  &:hover {
+    background: var(--ice-0);
+    box-shadow: inset 0 0 0 2px var(--blue-500);
+  }
+}
+
+.btn--lg {
+  min-height: 3.75rem;
+  padding-inline: 1.9rem;
+  font-size: var(--step-1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

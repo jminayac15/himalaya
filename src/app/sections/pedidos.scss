@@ -1,0 +1,129 @@
+:host {
+  display: block;
+  background: var(--blue-900);
+  color: var(--on-blue);
+}
+
+.section {
+  padding-block: var(--space-2xl) var(--space-xl);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.cta {
+  h2 {
+    font-size: var(--step-4);
+  }
+  p {
+    max-width: 28rem;
+    margin-top: var(--space-s);
+    font-size: var(--step-1);
+    color: var(--on-blue-soft);
+  }
+}
+
+.numero {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.18em;
+  margin-top: var(--space-l);
+  font: 800 clamp(2.8rem, 1.6rem + 5vw, 5.75rem) / 1 var(--font-display);
+  font-stretch: 78%;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--on-blue);
+  text-decoration: none;
+  transition: color 0.25s ease;
+
+  app-icon {
+    width: 0.62em;
+    height: 0.62em;
+    color: var(--blue-400);
+    margin-right: 0.12em;
+  }
+  &:hover {
+    color: var(--ice-200);
+  }
+}
+
+.btn {
+  display: flex;
+  width: fit-content;
+  margin-top: var(--space-l);
+}
+
+.pasos {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-m);
+    padding-block: var(--space-m);
+    border-top: 1px solid rgb(255 255 255 / 0.16);
+    &:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+  }
+
+  .n {
+    display: grid;
+    place-items: center;
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 50%;
+    background: var(--blue-600);
+    font: 800 var(--step-2) / 1 var(--font-display);
+  }
+  h3 {
+    font-size: var(--step-2);
+  }
+  p {
+    margin-top: 0.4rem;
+    color: var(--on-blue-soft);
+  }
+}
+
+.gracias {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+  margin-top: var(--space-xl);
+  padding-top: var(--space-l);
+  border-top: 1px solid rgb(255 255 255 / 0.16);
+
+  img {
+    width: 7.5rem;
+    height: auto;
+    padding: 0.6rem 0.5rem 0.2rem;
+    background: var(--ice-0);
+    border-radius: 45% 45% 16px 16px / 55% 55% 16px 16px;
+  }
+  p {
+    font: 800 var(--step-3) / 1.05 var(--font-display);
+    font-stretch: 82%;
+  }
+}
+
+@media (max-width: 860px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn {
+    width: 100%;
+  }
+  .gracias img {
+    width: 5.5rem;
+  }
+}
